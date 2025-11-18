@@ -1,6 +1,7 @@
 /* Reset e configurações base modernizadas */
 * {
-    max-width: 100%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -504,38 +505,107 @@ input:focus {
     to   { opacity: 0; transform: translateX(25px); }
 }
 
+@media (max-width: 1024px) {
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-calculate, .btn-login, .btn-logout {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .login-card, .input-card, .results-section {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
 /* Responsividade aprimorada */
 @media (max-width: 768px) {
+    .app-container {
+        padding: 16px;
+    }
+
     .header-content {
         flex-direction: column;
-        align-items: center;
         text-align: center;
         padding: 20px;
     }
 
-    .results-grid {
-        grid-template-columns: 1fr; /* Uma coluna apenas */
-    }
-
-    .login-card {
-        padding: 32px 16px;
+    .header-text h1 {
+        font-size: 1.5rem;
     }
 
     .calculator-section, .results-section {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .login-card {
-        padding: 24px 12px;
+        padding: 24px;
     }
 
-    .input-card {
-        padding: 16px;
+    .results-grid {
+        grid-template-columns: 1fr;
     }
 
     .result-value {
+        font-size: 1.875rem;
+    }
+
+    .login-card {
+        padding: 32px 24px;
+    }
+}
+
+/* Para smartphones */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* ajusta texto para telas pequenas */
+    }
+
+    h1 {
         font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    h3, h4 {
+        font-size: 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    .btn-calculate, .btn-login, .btn-logout {
+        width: 100%;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr; /* todos os resultados em coluna única */
+        gap: 10px;
+    }
+
+    .login-card, .input-card {
+        padding: 10px;
+    }
+
+    .info-card ul {
+        padding-left: 20px; /* garante legibilidade */
     }
 }
