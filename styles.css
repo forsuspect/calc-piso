@@ -1,8 +1,22 @@
 /* Reset e configurações base modernizadas */
 * {
-    margin: 0;
-    padding: 0;
+    max-width: 100%;
     box-sizing: border-box;
+}
+
+/* Corrige barra de rolagem horizontal e centraliza corretamente */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* remove rolagem horizontal */
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* ajusta altura corretamente */
+    align-items: center;
+    min-height: 100vh;
 }
 
 :root {
@@ -49,14 +63,16 @@ body {
     overflow-x: hidden; /* evita barra horizontal */
 }
 
-/* Login container modernizado */
+
+/* Login container centralizado verticalmente e horizontalmente */
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 24px;
     width: 100%;
+    min-height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .login-card {
@@ -96,12 +112,11 @@ body {
 
 /* App container modernizado */
 .app-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 24px;
     width: 100%;
+    max-width: 1000px;
+    padding: 16px;
+    box-sizing: border-box;
 }
-
 .app-header {
     margin-bottom: 32px;
 }
@@ -274,10 +289,10 @@ input:focus {
 /* Results grid modernizado */
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .result-card {
@@ -491,43 +506,36 @@ input:focus {
 
 /* Responsividade aprimorada */
 @media (max-width: 768px) {
-    .app-container {
-        padding: 16px;
-    }
-
     .header-content {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 20px;
     }
 
-    .header-text h1 {
-        font-size: 1.5rem;
-    }
-
-    .calculator-section, .results-section {
-        padding: 24px;
-    }
-
     .results-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .result-value {
-        font-size: 1.875rem;
+        grid-template-columns: 1fr; /* Uma coluna apenas */
     }
 
     .login-card {
-        padding: 32px 24px;
+        padding: 32px 16px;
+    }
+
+    .calculator-section, .results-section {
+        padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .login-card {
-        padding: 24px 20px;
+        padding: 24px 12px;
     }
 
     .input-card {
-        padding: 20px;
+        padding: 16px;
+    }
+
+    .result-value {
+        font-size: 1.5rem;
     }
 }
