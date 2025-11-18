@@ -6,7 +6,6 @@
 }
 
 :root {
-    /* Sistema de cores moderno e sofisticado */
     --primary: #6366f1;
     --primary-dark: #4f46e5;
     --secondary: #8b5cf6;
@@ -47,6 +46,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* evita barra horizontal */
 }
 
 /* Login container modernizado */
@@ -56,6 +56,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 24px;
+    width: 100%;
 }
 
 .login-card {
@@ -98,6 +99,7 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 24px;
+    width: 100%;
 }
 
 .app-header {
@@ -114,6 +116,7 @@ body {
     padding: 24px 32px;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    flex-wrap: wrap; /* evita overflow horizontal */
 }
 
 .header-text h1 {
@@ -173,12 +176,12 @@ body {
     font-size: 0.95rem;
 }
 
-.calculator-section,
-.results-section {
+.calculator-section, .results-section {
     background: var(--surface);
     border-radius: var(--radius-xl);
     padding: 32px;
     box-shadow: var(--shadow-lg);
+    width: 100%;
 }
 
 .input-card {
@@ -186,6 +189,7 @@ body {
     border-radius: var(--radius-lg);
     padding: 24px;
     border: 1px solid var(--border);
+    width: 100%;
 }
 
 .form-group {
@@ -221,6 +225,7 @@ input {
     font-family: inherit;
     transition: all 0.2s ease;
     background: var(--surface);
+    max-width: 100%;
 }
 
 input:focus {
@@ -228,19 +233,6 @@ input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
-
-.result-icon i {
-    font-size: 32px;
-    color: #ff6f61;
-    /* cor para argamassa, pode mudar para rejunte separadamente */
-    margin-right: 10px;
-}
-
-.result-card.rejunte .result-icon i {
-    color: #4a90e2;
-    /* cor diferenciada para rejunte */
-}
-
 
 .input-suffix {
     position: absolute;
@@ -250,13 +242,13 @@ input:focus {
     pointer-events: none;
 }
 
-.btn-calculate,
-.btn-login {
+.btn-calculate, .btn-login {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     width: 100%;
+    max-width: 100%;
     padding: 16px;
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: var(--text-on-dark);
@@ -270,23 +262,22 @@ input:focus {
     font-family: inherit;
 }
 
-.btn-calculate:hover,
-.btn-login:hover {
+.btn-calculate:hover, .btn-login:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
 }
 
-.btn-calculate:active,
-.btn-login:active {
+.btn-calculate:active, .btn-login:active {
     transform: translateY(0);
 }
 
 /* Results grid modernizado */
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin-bottom: 24px;
+    width: 100%;
 }
 
 .result-card {
@@ -295,6 +286,7 @@ input:focus {
     border-radius: var(--radius-lg);
     padding: 24px;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .result-card:hover {
@@ -369,6 +361,7 @@ input:focus {
     border: 1px solid var(--border);
     padding: 24px;
     border-radius: var(--radius-lg);
+    width: 100%;
 }
 
 .info-header {
@@ -401,7 +394,6 @@ input:focus {
     gap: 12px;
     color: var(--text-secondary);
     font-size: 0.9rem;
-    padding-left: 0;
 }
 
 .info-card li:before {
@@ -417,9 +409,9 @@ input:focus {
     font-weight: 700;
     font-size: 0.75rem;
     flex-shrink: 0;
-    position: static;
 }
 
+/* Footer */
 .app-footer {
     text-align: center;
     color: var(--text-on-dark);
@@ -439,13 +431,13 @@ input:focus {
 .app-footer a {
     text-decoration: none;
     color: #fff;
-    cursor: pointer;
 }
 
 .app-footer a:hover {
     color: red;
 }
 
+/* Toast */
 #toast-container {
     position: fixed;
     top: 20px;
@@ -465,7 +457,7 @@ input:focus {
     min-width: 280px;
     color: #fff;
     font-family: "Inter", sans-serif;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.20);
     animation: slideIn .4s ease forwards;
 }
 
@@ -473,21 +465,10 @@ input:focus {
     font-size: 24px;
 }
 
-.toast.success {
-    background: #2ecc71;
-}
-
-.toast.error {
-    background: #e74c3c;
-}
-
-.toast.warning {
-    background: #f39c12;
-}
-
-.toast.info {
-    background: #3498db;
-}
+.toast.success { background: #2ecc71; }
+.toast.error   { background: #e74c3c; }
+.toast.warning { background: #f39c12; }
+.toast.info    { background: #3498db; }
 
 .toast .close-btn {
     margin-left: auto;
@@ -496,40 +477,17 @@ input:focus {
     opacity: .8;
     transition: .2s;
 }
-
-.toast .close-btn:hover {
-    opacity: 1;
-}
-
-.btn-calculate, .btn-login, .btn-logout {
-    width: 100%;
-    max-width: 100%;
-}
+.toast .close-btn:hover { opacity: 1; }
 
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(25px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    to {
-        opacity: 0;
-        transform: translateX(25px);
-    }
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(25px); }
 }
-
 
 /* Responsividade aprimorada */
 @media (max-width: 768px) {
@@ -547,8 +505,7 @@ input:focus {
         font-size: 1.5rem;
     }
 
-    .calculator-section,
-    .results-section {
+    .calculator-section, .results-section {
         padding: 24px;
     }
 
@@ -572,32 +529,5 @@ input:focus {
 
     .input-card {
         padding: 20px;
-    }
-
-    .header-text h1 {
-        font-size: 1.25rem;
-    }
-
-    .section-header h2 {
-        font-size: 1.25rem;
-    }
-
-    .results-grid {
-        gap: 16px;
-    }
-
-    .login-container {
-        padding: 16px;
-    }
-}
-
-@media (max-width: 360px) {
-    input {
-        padding: 10px 12px;
-        font-size: 0.9rem;
-    }
-
-    .input-suffix {
-        right: 12px;
     }
 }
