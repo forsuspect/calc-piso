@@ -616,6 +616,7 @@ input:focus {
         padding: 0;
         box-sizing: border-box;
         font-size: 14px;
+        overflow: hidden;
         /* ajusta texto para telas pequenas */
     }
 
@@ -662,5 +663,29 @@ input:focus {
     .info-card ul {
         padding-left: 20px;
         /* garante legibilidade */
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 14px;
+        overflow: hidden;
+        /* ajusta texto para telas pequenas */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3,
+    h4 {
+        font-size: 1rem;
     }
 }
